@@ -30,5 +30,23 @@ function central_update_7000() {
     throw new DrupalUpdateException('Something went wrong; A dependency was missing.');
   }
 
-  module_disable(array('overlay'), TRUE);
+  module_disable(array('overlay', 'toolbar'), TRUE);
+}
+
+/**
+ * Enable entity and entityreference
+ */
+
+function central_update_7001() {
+
+  $module_list = array(
+  	'entity',
+    'entityreference'
+  );
+
+  $modules_enabled = module_enable($module_list, TRUE);
+
+  if (!$modules_enabled){
+    throw new DrupalUpdateException('Something went wrong; A dependancy was missing.');
+  }
 }
