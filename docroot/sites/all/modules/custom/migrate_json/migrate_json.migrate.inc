@@ -74,7 +74,6 @@ class JSONMigration extends Migration {
 
   public function prepareRow($row){
   // included at the beginning of every prepareRow()
-  //drush_print_r($row);
     if (parent::prepareRow($row) == FALSE) {
       return FALSE;
     }
@@ -87,4 +86,5 @@ class JSONMigration extends Migration {
     $row->last_name = $last_name;
     return TRUE;
   }
+
 }

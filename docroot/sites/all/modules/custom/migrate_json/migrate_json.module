@@ -23,3 +23,10 @@ function migrate_json_migrate_api() {
 
     return $api;
 }
+
+//Hide the age in the user profile.
+function migrate_json_user_view_alter(&$build) {
+  if (isset($build['field_age'])) {
+    unset($build['field_age']);
+   }
+}
